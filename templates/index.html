@@ -2,9 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <title>Hoostargram</title>
+
+    <style> /* 스타일 태그는 헤드 태그 안에*/
+    .nav_bar_bigcontainer {
+        border-bottom: solid 2px black;
+        height: 60px;
+        background-color: red;
+    }   /* 상단 바 모음. 높이 설정 */
+    .nav_bar_container {
+        border-bottom: solid 2px black; /* 보더 아래쪽 속성 일치 시키기 */
+        height: 60px;
+        width: 975px;   /* 모음들 가로 길이 설정 */
+        background-color: white;
+        margin: 0 auto;     /* 버튼 모음들 중앙 정렬 */
+        display: flex;
+        align-items: center;
+        justify-content: center;        /* display,align-items,justyfi-content 이 박스 안의 요소들 가로 세로 중앙 정렬. */
+    } /* 버튼 기능 있는 부분들 가로 위치 */
+    .nav_bar_hti {
+        width: 333.5px;
+        height: 36px;
+        background-color: yellow;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;    /* display,flex-direction,align-items,justyfi-content 이 박스 안의 이미지 들어갈 박스 세로 중앙 정렬 및 왼쪽 정렬. */
+    } /* 이미지 들어갈 박스의 엄마 박스 */
+    .insta_left_bar_image {
+        width: 50px;
+        height: 30px;
+        background-color: black;
+
+    } /* nav_bar_hti 안의 이미지 들어갈 박스 */
+    .nav_bar_search{
+        width: 268px;
+        height: 36px;
+        background-color: antiquewhite;
+        border-radius: 10px;
+
+    } /* 검색창 엄마 박스*/
+    #nav_bar_sch {
+        width: 268px;
+        height: 36px;
+        background-color: antiquewhite;
+        border: solid 0px black;
+        border-radius: 10px;
+    }   /* 검색창 자식 박스 */
+    .nav_bar_icon_container {
+        width: 333.5px;
+        height: 24px;
+        background-color: aquamarine;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    } /* 아이콘 모음 박스 */
+    .nav_bar_icon_align {
+        width : 288px;
+        height: 24px;
+        background-color: blue;
+        display: flex;
+        flex-direction: row;
+    }
+    .btnss{
+        width: 48px;
+        height: 24px;
+        background-color: yellow;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+
+    .btns{
+        width: 24px;
+        height: 24px;
+        background-color: hotpink;
+
+    }
+
+    </style>
+
 </head>
+
 <body>
-Hello!
+
+<!-- 상단바 -->
+
+<!-- 검색창(<input type="text"/>) -->
+
+<!-- 우측 홈버튼, 메시지 보내기, 게시물 만들기, 탐색, 알림, 내계정 버튼 버튼 누르면 이미지 검은색으로 칠해짐. -->
+
+<div class="nav_bar_bigcontainer">  <!-- 상단바 생성 스크롤해도 위에 고정하기. -->
+    <div class="nav_bar_container"> <!-- nav bar 기능들 컨테이너  -->
+        <div class="nav_bar_hti">
+            <div class="insta_left_bar_image"><!-- 인스타그램 이미지--></div>
+        </div>    <!--좌측 홈버튼 -->
+        <div class="nav_bar_search">
+            <input id="nav_bar_sch" type="search" onClick="hide" placeholder="&#xF002; 검색"
+                               style="font-family:Arial, FontAwesome"/>
+        </div>  <!-- 검색창(<input type="text"/>) -->
+        <div class="nav_bar_icon_container">
+            <div class="nav_bar_icon_align">
+                    <div class="btnss"> <!-- 우측 홈버튼 -->
+                        <div class="nav_bar_btn_home btns"></div>
+                    </div>
+                    <div class="btnss"><!-- 메시지 보내기 -->
+                        <div class="nav_bar_btn_msg btns"></div>
+                    </div>
+                    <div class="btnss"><!-- 게시물 만들기 -->
+                        <div class="nav_bar_btn_upload btns"></div>
+                    </div>
+                    <div class="btnss"><!-- 탐색 -->
+                        <div class="nav_bar_btn_sch btns" ></div>
+                    </div>
+                    <div class="btnss"><!-- 알림 -->
+                        <div class="nav_bar_btn_alert btns"></div>
+                    </div>
+                    <div class="btnss"><!-- 내 계정 -->
+                        <div class="nav_bar_btn_myaccount btns"></div>
+                    </div>
+            </div>
+        </div> <!--icon 컨테이너 -->
+    </div>
+</div>
+
+
+
+<!-- -->
 </body>
 </html>
