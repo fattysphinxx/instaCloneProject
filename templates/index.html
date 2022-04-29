@@ -56,16 +56,16 @@
         height: 24px;
         background-color: aquamarine;
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* 기본축을 세로에서 가로로 변경 */
         align-items: end;
-    } /* 아이콘 모음 박스 */
+    } /* 아이콘 모음 박스 .nav_bar_icon_align div를 오른쪽 정렬해줌 */
     .nav_bar_icon_align {
         width : 288px;
         height: 24px;
         background-color: blue;
         display: flex;
         flex-direction: row;
-    }
+    } /* 오른쪽 정렬된 icon_align 클래스 안의 디브들 세로로 나열되어있는 거 display:flex; flex-direction: row를 이용하여 가로로 나열해줌. */
     .btnss{
         width: 48px;
         height: 24px;
@@ -73,14 +73,48 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-    }
+    }   /* btnss 디브들 안에 있는 btns 디브들 오른쪽 정렬 */
 
 
     .btns{
         width: 24px;
         height: 24px;
         background-color: hotpink;
-
+    } /* 아이콘이 들어갈 클래스.*/
+    .main {
+        width: 935px;
+        height: 1500px;
+        background-color: aquamarine;
+        margin: 0 auto;
+        margin-top: 140px;
+        display: flex;
+        flex-direction: row;
+    } /* section 태그에 대해서 더 알아보기, 피드와, 사이드바의 구조 설계 단계임. margin 0 auto를 이용하여 중앙정렬 */
+    .main_feed {
+        width:614px;
+        height: 1500px;
+        background-color: hotpink;
+    } /* 피드 */
+    .main_side_bar {
+        width: 293px;
+        height:863px;
+        background-color: chocolate;
+        margin-left: 28px;
+    } /* 사이드바 */
+    .main_side_bar_account{
+        width: 294px;
+        height: 56px;
+        background-color: black;
+        color:white;
+    }
+    .main_side_bar_suggest{
+        width: 325px;
+        height: 291px;
+        background-color: gold;
+    }
+    .main_side_bar_footer{
+        width: 293px;
+        height: 113px;
     }
 
     </style>
@@ -129,8 +163,21 @@
     </div>
 </div>
 
+<div class="main">
+     <div class="main_feed">
+         <div>뉴스 피드 캐러셀</div>
+     </div>  <!-- 피드 -->
+    <div class="main_side_bar">
+    <div class="main_side_bar_account"> 계정 </div>
+        <div class="main_side_bar_suggest">회원님을 위한 추천</div>
+        <div class="main_side_bar_footer">
+            <footer>소개,도움말,홍보 센터,API,채용 정보,개인정보처리방침,약관,위치,인기계정,해시태그,</footer>
+        </div>
+        </div> <!-- 사이드바 div 계정전환용, 회원님을 위한 추천, footer -->
+
+</div> <!-- 피드와 사이드바 묶어준 후 중앙정렬 -->
 
 
-<!-- -->
+<!-- 각각의 기능마다 html파일 추가 -->
 </body>
 </html>
