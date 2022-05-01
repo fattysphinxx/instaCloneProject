@@ -2,121 +2,420 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link
+            href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+            rel="stylesheet">
+    <script src="https://kit.fontawesome.com/125aca993d.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
     <title>Hoostargram</title>
 
     <style> /* 스타일 태그는 헤드 태그 안에*/
     .nav_bar_bigcontainer {
-        border-bottom: solid 2px black;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.2);
         height: 60px;
-        background-color: red;
-    }   /* 상단 바 모음. 높이 설정 */
-    .nav_bar_container {
-        border-bottom: solid 2px black; /* 보더 아래쪽 속성 일치 시키기 */
-        height: 60px;
-        width: 975px;   /* 모음들 가로 길이 설정 */
         background-color: white;
-        margin: 0 auto;     /* 버튼 모음들 중앙 정렬 */
+        position: fixed; /* Set the navbar to fixed position */
+        top: 0; /* Position the navbar at the top of the page */
+        width: 100%; /* Full width */
+        z-index: 1;
+
+    }
+
+    /* 상단 바 모음. 높이 설정 */
+    .nav_bar_container {
+        border-bottom: solid 1px rgba(0, 0, 0, 0.2); /* 보더 아래쪽 속성 일치 시키기 */
+        height: 60px;
+        width: 975px; /* 모음들 가로 길이 설정 */
+        background-color: white;
+        margin: 0 auto; /* 버튼 모음들 중앙 정렬 */
         display: flex;
         align-items: center;
-        justify-content: center;        /* display,align-items,justyfi-content 이 박스 안의 요소들 가로 세로 중앙 정렬. */
-    } /* 버튼 기능 있는 부분들 가로 위치 */
+        justify-content: center; /* display,align-items,justyfi-content 이 박스 안의 요소들 가로 세로 중앙 정렬. */
+    }
+
+    /* 버튼 기능 있는 부분들 가로 위치 */
     .nav_bar_hti {
         width: 333.5px;
         height: 36px;
-        background-color: yellow;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;    /* display,flex-direction,align-items,justyfi-content 이 박스 안의 이미지 들어갈 박스 세로 중앙 정렬 및 왼쪽 정렬. */
-    } /* 이미지 들어갈 박스의 엄마 박스 */
-    .insta_left_bar_image {
-        width: 50px;
-        height: 30px;
-        background-color: black;
+        /* display,flex-direction,align-items,justyfi-content 이 박스 안의 이미지 들어갈 박스 세로 중앙 정렬 및 왼쪽 정렬. */
+    }
 
-    } /* nav_bar_hti 안의 이미지 들어갈 박스 */
-    .nav_bar_search{
+    /* 이미지 들어갈 박스의 엄마 박스 */
+    .nav_bar_a {
+        width: 333.5px;
+        height: 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .insta_left_bar_image {
+        width: 103px;
+        height: 29px;
+        display: flex;
+
+    }
+
+    /* nav_bar_hti 안의 이미지 들어갈 박스 */
+    .insta_left_bar_image_src {
+        width: 103px;
+        height: 29px;
+    }
+
+    .insta_left_bar_image_src_size {
+        width: 103px;
+        height: 29px;
+    }
+
+    .nav_bar_search {
         width: 268px;
         height: 36px;
         background-color: antiquewhite;
         border-radius: 10px;
+    }
 
-    } /* 검색창 엄마 박스*/
+    /* 검색창 엄마 박스*/
     #nav_bar_sch {
         width: 268px;
         height: 36px;
         background-color: antiquewhite;
         border: solid 0px black;
         border-radius: 10px;
-    }   /* 검색창 자식 박스 */
+        margin-left: 14px;
+    }
+    #nav_bar_sch:focus {
+        outline: none;
+    }
+
+    /* 검색창 자식 박스 */
     .nav_bar_icon_container {
         width: 333.5px;
         height: 24px;
-        background-color: aquamarine;
         display: flex;
         flex-direction: column; /* 기본축을 세로에서 가로로 변경 */
         align-items: end;
-    } /* 아이콘 모음 박스 .nav_bar_icon_align div를 오른쪽 정렬해줌 */
+    }
+
+    /* 아이콘 모음 박스 .nav_bar_icon_align div를 오른쪽 정렬해줌 */
     .nav_bar_icon_align {
-        width : 288px;
+        width: 288px;
         height: 24px;
-        background-color: blue;
         display: flex;
         flex-direction: row;
-    } /* 오른쪽 정렬된 icon_align 클래스 안의 디브들 세로로 나열되어있는 거 display:flex; flex-direction: row를 이용하여 가로로 나열해줌. */
-    .btnss{
+    }
+
+    /* 오른쪽 정렬된 icon_align 클래스 안의 디브들 세로로 나열되어있는 거 display:flex; flex-direction: row를 이용하여 가로로 나열해줌. */
+    .btnss {
         width: 48px;
         height: 24px;
-        background-color: yellow;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-    }   /* btnss 디브들 안에 있는 btns 디브들 오른쪽 정렬 */
+    }
+
+    /* btnss 디브들 안에 있는 btns 디브들 오른쪽 정렬 */
 
 
-    .btns{
+    .btns {
         width: 24px;
         height: 24px;
-        background-color: hotpink;
-    } /* 아이콘이 들어갈 클래스.*/
+    }
+
+    /* 아이콘이 들어갈 클래스.*/
+    .icon_middle {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+        color: black;
+    }
+
+
     .main {
         width: 935px;
-        height: 1500px;
-        background-color: aquamarine;
+        height: 100%;
         margin: 0 auto;
         margin-top: 140px;
-        display: flex;
+        display: block;
         flex-direction: row;
-    } /* section 태그에 대해서 더 알아보기, 피드와, 사이드바의 구조 설계 단계임. margin 0 auto를 이용하여 중앙정렬 */
+    }
+
+    /* section 태그에 대해서 더 알아보기, 피드와, 사이드바의 구조 설계 단계임. margin 0 auto를 이용하여 중앙정렬 */
     .main_feed {
-        width:614px;
-        height: 1500px;
-        background-color: hotpink;
-    } /* 피드 */
+        width: 614px;
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        display: block;
+        margin-bottom: 25px;
+    }
+
+    /* 피드 */
     .main_side_bar {
         width: 293px;
-        height:863px;
+        height: 863px;
         background-color: chocolate;
         margin-left: 28px;
-    } /* 사이드바 */
-    .main_side_bar_account{
+        top: 140px;
+        left: 59%;
+        position: fixed;
+
+
+    }
+
+    /* 사이드바 */
+    .main_side_bar_account {
         width: 294px;
         height: 56px;
         background-color: black;
-        color:white;
+        color: white;
     }
-    .main_side_bar_suggest{
+
+    .main_side_bar_account_img {
+        width: 64px;
+        height: 56px;
+        background-color: red;
+    }
+
+    .main_side_bar_account_name {
+
+    }
+
+    .main_side_bar_account_convert {
+
+    }
+
+    /* 여기까지 사이드바 이름 */
+
+
+    .main_side_bar_suggest {
         width: 325px;
         height: 291px;
         background-color: gold;
     }
-    .main_side_bar_footer{
+
+    .main_side_bar_footer {
         width: 293px;
         height: 113px;
     }
 
+    /* 여기까지 사이드바 푸터 */
+
+    .feed_box {
+        width: 614px;
+        height: 956px;
+    }
+
+    .feed_name {
+        width: 614px;
+        height: 61px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* 캐러셀 프로필 이미지와 닉네임. 그리고 더보기란 */
+    .feed_name_area1 {
+        width: 566px;
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .feed_name_area2 {
+        width: 48px;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .area2_button_textbox{
+        background-color: white;
+        border: none;
+    }
+
+    .profile_img {
+        width: 32px;
+        height: 32px;
+        margin-left: 10px;
+
+    }
+
+    /* 캐러셀 프로필 이미지 */
+    .feed_name_txt {
+        width: 500px;
+        height: 26px;
+        margin-left: 15px;
+    }
+
+    /* 캐러셀 프로필 닉네임 */
+
+    .feed_icon {
+        display: flex;
+        width: 614px;
+        height: 50px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 5px 0px 5px;
+    }
+
+    /* 캐러셀 좋아요, 댓글달기, 공유하기, 보관하기*/
+    .notranslate {
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: border-box;
+        padding-right: 5px;
+        font-family: 'Material Icons Outlined';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .not_margin{
+        margin-left: 10px;
+    }
+
+    .feed_like {
+        width: 614px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 좋아요 수 */
+    .feed_like_text {
+        width: 582px;
+        height: 24px;
+    }
+
+    .feed_paragraghs {
+        width: 614px;
+        height: 106px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .feed_paragraghs_items {
+        width: 582px;
+        height: 106px;
+        font-size: 15px;
+    }
+
+    .feed_paragraghs_p {
+        width: 582px;
+        height: 36px;
+    }
+
+    .feed_paragraghs_see_all {
+        width: 582px;
+        height: 18px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .feed_paragraghs_comment {
+        width: 582px;
+        height: 44px;
+        background-color: white;
+    }
+
+    .feed_paragraghs_comment_1 {
+        width: 582px;
+        height: 18px;
+        display: flex;
+        flex-direction: row;
+    }
+    .p_inline{
+        display: inline;
+        padding-left: 5px;
+    }
+
+    .feed_paragraghs_comment_comment {
+        width: 570px;
+        height: 18px;
+    }
+
+    .feed_paragraghs_comment_heart {
+        width: 24px;
+        height: 24px;
+    }
+
+    .feed_paragraghs_comment_date {
+        width: 614px;
+        height: 36px;
+        display: flex;
+        justify-content: flex-end;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.1); /* 보더 아래쪽 속성 일치 시키기 */
+    }
+
+    .feed_paragraghs_comment_date_text {
+        width: 598px;
+        height: 18px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 13px;
+    }
+    .feed_paragraghs_comment_im_co_write_wrap{
+        width:614px;
+        height:53px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .feed_paragraghs_comment_im_co_write{
+        width:582px;
+        height:40px;
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+
+    }
+    .bottom_imogy{
+        width:40px;
+        height:40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bottom_imogy_margin{
+        margin-right: 10px;
+    }
+    .bottom_comment{
+        width:511.77px;
+        height:18px;
+        display: flex;
+
+    }
+    .bottom_comment_loc{
+        border: none;
+        width: 500px;
+    }
+    .bottom_comment_loc:focus{
+        outline: none;
+    }
+    .bottom_write{
+        width:24.23px;
+        height:18px;
+        color: deepskyblue;
+        font-size: 14px;
+    }
     </style>
 
 </head>
@@ -132,48 +431,413 @@
 <div class="nav_bar_bigcontainer">  <!-- 상단바 생성 스크롤해도 위에 고정하기. -->
     <div class="nav_bar_container"> <!-- nav bar 기능들 컨테이너  -->
         <div class="nav_bar_hti">
-            <div class="insta_left_bar_image"><!-- 인스타그램 이미지--></div>
+            <a class="nav_bar_a" href="">
+                <div class="insta_left_bar_image"><!-- 인스타그램 이미지-->
+                    <div class="insta_left_bar_image_src">
+                        <img alt="instagram" class="insta_left_bar_image_src_size" src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png
+"/>
+                    </div>
+                </div>
+            </a>
         </div>    <!--좌측 홈버튼 -->
         <div class="nav_bar_search">
-            <input id="nav_bar_sch" type="search" onClick="hide" placeholder="&#xF002; 검색"
-                               style="font-family:Arial, FontAwesome"/>
+            <input id="nav_bar_sch" type="search" placeholder="&#xF002; 검색"
+                   style="font-family:Arial, FontAwesome"/>
         </div>  <!-- 검색창(<input type="text"/>) -->
         <div class="nav_bar_icon_container">
             <div class="nav_bar_icon_align">
-                    <div class="btnss"> <!-- 우측 홈버튼 -->
-                        <div class="nav_bar_btn_home btns"></div>
+                <div class="btnss"> <!-- 우측 홈버튼 -->
+                    <div class="nav_bar_btn_home btns" href="">
+                        <i class="icon_middle fa-solid fa-house fa-lg"></i>
                     </div>
-                    <div class="btnss"><!-- 메시지 보내기 -->
-                        <div class="nav_bar_btn_msg btns"></div>
+                </div>
+                <div class="btnss"><!-- 메시지 보내기 -->
+                    <div class="nav_bar_btn_msg btns" href="">
+                        <i class="icon_middle fa-solid fa-paper-plane fa-lg"></i>
                     </div>
-                    <div class="btnss"><!-- 게시물 만들기 -->
-                        <div class="nav_bar_btn_upload btns"></div>
+                </div>
+                <div class="btnss"><!-- 게시물 만들기 -->
+                    <div class="nav_bar_btn_upload btns" href="">
+                        <i class="icon_middle fa-solid fa-square-plus fa-lg"></i>
                     </div>
-                    <div class="btnss"><!-- 탐색 -->
-                        <div class="nav_bar_btn_sch btns" ></div>
+                </div>
+                <div class="btnss"><!-- 탐색 -->
+                    <div class="nav_bar_btn_sch btns" href="">
+                        <i class="icon_middle fa-solid fa-compass fa-lg"></i>
                     </div>
-                    <div class="btnss"><!-- 알림 -->
-                        <div class="nav_bar_btn_alert btns"></div>
+                </div>
+                <div class="btnss"><!-- 알림 -->
+                    <div class="nav_bar_btn_alert btns" href="">
+                        <i class="icon_middle fa-solid fa-heart fa-lg"></i>
                     </div>
-                    <div class="btnss"><!-- 내 계정 -->
-                        <div class="nav_bar_btn_myaccount btns"></div>
+                </div>
+                <div class="btnss"><!-- 내 계정 -->
+                    <div class="nav_bar_btn_myaccount btns" href="">
+                        <i class="icon_middle fa-solid fa-user fa-lg"></i>
                     </div>
+                </div>
             </div>
         </div> <!--icon 컨테이너 -->
     </div>
 </div>
 
 <div class="main">
-     <div class="main_feed">
-         <div>뉴스 피드 캐러셀</div>
-     </div>  <!-- 피드 -->
+    <div class="main_feed">
+        <div class="feed_box">
+            <div class="feed_name">
+                <div class="feed_name_area1">
+                    <div class="profile_box">
+                        <img class="profile_img"
+                             src="/cha_img.png">
+                    </div>
+                    <div class="feed_name_txt"><b>fattysphinxx</b></div>
+                </div>
+                <div class="feed_name_area2">
+                    <div class="button_modal">
+                        <button2 type="button" class="area2_button_textbox btn btn-light">. . .</button2>
+                    </div>
+                    <div class="modal">
+                        <div class="modal_content"
+                             title="클릭하면 창이 닫힙니다."
+                             style="line-height:300%">
+                            <span style="color: red">신고</span> <span style="color: red"> <br> 팔로우취소 </span> <br> 게시물로이동
+                            <br>
+                            태그된 계정 <br> 퍼가기 <br> 취소
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="feed_img">
+                <div id="carouselExampleIndicators" class="carousel slide perimage" data-bs-touch="true"
+                     data-bs-interval="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/one.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/two.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/three.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="feed_icon">
+                <div class="not_margin notranslate">
+                    <span class="material-icons-outlined">favorite_border</span>
+                    <span class="material-icons-outlined">mode_comment</span>
+                    <span class="material-icons-outlined">send</span>
+                </div>
+                <div class="notranslate">
+                    <span class="material-icons-outlined">turned_in_not</span>
+                </div>
+            </div>
+            <div class="feed_like">
+                <div class="feed_like_text"><b>좋아요 219개</b></div>
+            </div>
+            <div class="feed_paragraghs">
+                <div class="feed_paragraghs_items">
+                    <div class="feed_paragraghs_p"><b>fattysphinxx</b> enfp와 infp 사이의 어딘가.</div>
+                    <div class="feed_paragraghs_see_all">댓글 63개 모두 보기</div>
+                    <div class="feed_paragraghs_comment">
+                        <div class="feed_paragraghs_comment_1">
+                            <div class="feed_paragraghs_comment_comment"><b>fattysphinxx</b><p class="p_inline">전형적인 e 라구염</p></div>
+                            <div class="feed_paragraghs_comment_heart"><i class="icon_middle fa-solid fa-heart fa-sm"></i></div>
+                        </div>
+                        <div class="feed_paragraghs_comment_1">
+                            <div class="feed_paragraghs_comment_comment"><b>fattysphinxx</b><p class="p_inline">전형적인 e 라니까여</p></div>
+                            <div class="feed_paragraghs_comment_heart"><i class="icon_middle fa-solid fa-heart fa-sm"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feed_paragraghs_comment_date">
+                <div class="feed_paragraghs_comment_date_text">
+                    2일 전
+                </div>
+            </div>
+            <div class="feed_paragraghs_comment_im_co_write_wrap">
+                <div class="feed_paragraghs_comment_im_co_write">
+                    <div class="bottom_imogy">
+                        <i class="bottom_imogy_margin fa-solid fa-face-grin fa-lg"></i>
+                    </div>
+                    <div class="bottom_comment">
+                        <input class="bottom_comment_loc" type="text" placeholder="댓글 달기"/>
+                    </div>
+                    <div class="bottom_write"><b>게시</b></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>  <!-- 피드 -->
+    <div class="main_feed">
+        <div class="feed_box">
+            <div class="feed_name">
+                <div class="feed_name_area1">
+                    <div class="profile_box">
+                        <img class="profile_img"
+                             src="/cha_img.png">
+                    </div>
+                    <div class="feed_name_txt"><b>fattysphinxx</b></div>
+                </div>
+                <div class="feed_name_area2">
+                    <div class="button_modal">
+                        <button2 type="button" class="area2_button_textbox btn btn-light">. . .</button2>
+                    </div>
+                    <div class="modal">
+                        <div class="modal_content"
+                             title="클릭하면 창이 닫힙니다."
+                             style="line-height:300%">
+                            <span style="color: red">신고</span> <span style="color: red"> <br> 팔로우취소 </span> <br> 게시물로이동
+                            <br>
+                            태그된 계정 <br> 퍼가기 <br> 취소
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="feed_img">
+                <div id="carouselExampleIndicators1" class="carousel slide perimage" data-bs-touch="true"
+                     data-bs-interval="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/one.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/two.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/three.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="feed_icon">
+                <div class="not_margin notranslate">
+                    <span class="material-icons-outlined">favorite_border</span>
+                    <span class="material-icons-outlined">mode_comment</span>
+                    <span class="material-icons-outlined">send</span>
+                </div>
+                <div class="notranslate">
+                    <span class="material-icons-outlined">turned_in_not</span>
+                </div>
+            </div>
+            <div class="feed_like">
+                <div class="feed_like_text"><b>좋아요 219개</b></div>
+            </div>
+            <div class="feed_paragraghs">
+                <div class="feed_paragraghs_items">
+                    <div class="feed_paragraghs_p"><b>fattysphinxx</b> enfp와 infp 사이의 어딘가.</div>
+                    <div class="feed_paragraghs_see_all">댓글 63개 모두 보기</div>
+                    <div class="feed_paragraghs_comment">
+                        <div class="feed_paragraghs_comment_1">
+                            <div class="feed_paragraghs_comment_comment"><b>fattysphinxx</b><p class="p_inline">전형적인 e 라구염</p></div>
+                            <div class="feed_paragraghs_comment_heart"><i class="icon_middle fa-solid fa-heart fa-sm"></i></div>
+                        </div>
+                        <div class="feed_paragraghs_comment_1">
+                            <div class="feed_paragraghs_comment_comment"><b>fattysphinxx</b><p class="p_inline">전형적인 e 라니까여</p></div>
+                            <div class="feed_paragraghs_comment_heart"><i class="icon_middle fa-solid fa-heart fa-sm"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feed_paragraghs_comment_date">
+                <div class="feed_paragraghs_comment_date_text">
+                    2일 전
+                </div>
+            </div>
+            <div class="feed_paragraghs_comment_im_co_write_wrap">
+                <div class="feed_paragraghs_comment_im_co_write">
+                    <div class="bottom_imogy">
+                        <i class="bottom_imogy_margin fa-solid fa-face-grin fa-lg"></i>
+                    </div>
+                    <div class="bottom_comment">
+                        <input class="bottom_comment_loc" type="text" placeholder="댓글 달기"/>
+                    </div>
+                    <div class="bottom_write"><b>게시</b></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>  <!-- 피드 -->
+    <div class="main_feed">
+        <div class="feed_box">
+            <div class="feed_name">
+                <div class="feed_name_area1">
+                    <div class="profile_box">
+                        <img class="profile_img"
+                             src="/cha_img.png">
+                    </div>
+                    <div class="feed_name_txt"><b>fattysphinxx</b></div>
+                </div>
+                <div class="feed_name_area2">
+                    <div class="button_modal">
+                        <button2 type="button" class="area2_button_textbox btn btn-light">. . .</button2>
+                    </div>
+                    <div class="modal">
+                        <div class="modal_content"
+                             title="클릭하면 창이 닫힙니다."
+                             style="line-height:300%">
+                            <span style="color: red">신고</span> <span style="color: red"> <br> 팔로우취소 </span> <br> 게시물로이동
+                            <br>
+                            태그된 계정 <br> 퍼가기 <br> 취소
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="feed_img">
+                <div id="carouselExampleIndicators2" class="carousel slide perimage" data-bs-touch="true"
+                     data-bs-interval="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/one.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/two.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/three.jpeg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="feed_icon">
+                <div class="not_margin notranslate">
+                    <span class="material-icons-outlined">favorite_border</span>
+                    <span class="material-icons-outlined">mode_comment</span>
+                    <span class="material-icons-outlined">send</span>
+                </div>
+                <div class="notranslate">
+                    <span class="material-icons-outlined">turned_in_not</span>
+                </div>
+            </div>
+            <div class="feed_like">
+                <div class="feed_like_text"><b>좋아요 219개</b></div>
+            </div>
+            <div class="feed_paragraghs">
+                <div class="feed_paragraghs_items">
+                    <div class="feed_paragraghs_p"><b>fattysphinxx</b> enfp와 infp 사이의 어딘가.</div>
+                    <div class="feed_paragraghs_see_all">댓글 63개 모두 보기</div>
+                    <div class="feed_paragraghs_comment">
+                        <div class="feed_paragraghs_comment_1">
+                            <div class="feed_paragraghs_comment_comment"><b>fattysphinxx</b><p class="p_inline">전형적인 e 라구염</p></div>
+                            <div class="feed_paragraghs_comment_heart"><i class="icon_middle fa-solid fa-heart fa-sm"></i></div>
+                        </div>
+                        <div class="feed_paragraghs_comment_1">
+                            <div class="feed_paragraghs_comment_comment"><b>fattysphinxx</b><p class="p_inline">전형적인 e 라니까여</p></div>
+                            <div class="feed_paragraghs_comment_heart"><i class="icon_middle fa-solid fa-heart fa-sm"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feed_paragraghs_comment_date">
+                <div class="feed_paragraghs_comment_date_text">
+                    2일 전
+                </div>
+            </div>
+            <div class="feed_paragraghs_comment_im_co_write_wrap">
+                <div class="feed_paragraghs_comment_im_co_write">
+                    <div class="bottom_imogy">
+                        <i class="bottom_imogy_margin fa-solid fa-face-grin fa-lg"></i>
+                    </div>
+                    <div class="bottom_comment">
+                        <input class="bottom_comment_loc" type="text" placeholder="댓글 달기"/>
+                    </div>
+                    <div class="bottom_write"><b>게시</b></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>  <!-- 피드 -->
+
+
     <div class="main_side_bar">
-    <div class="main_side_bar_account"> 계정 </div>
+        <div class="main_side_bar_account">
+            <div class="main_side_bar_account_img"></div>
+            <div class="main_side_bar_account_name"></div>
+            <div class="main_side_bar_account_convert"></div>
+        </div>
         <div class="main_side_bar_suggest">회원님을 위한 추천</div>
         <div class="main_side_bar_footer">
-            <footer>소개,도움말,홍보 센터,API,채용 정보,개인정보처리방침,약관,위치,인기계정,해시태그,</footer>
+            <footer>인스타그램 클론 코딩
+                https://github.com/fattysphinxx
+
+                @made 2022 Kim Jeong Hoo
+            </footer>
         </div>
-        </div> <!-- 사이드바 div 계정전환용, 회원님을 위한 추천, footer -->
+    </div> <!-- 사이드바 div 계정전환용, 회원님을 위한 추천, footer -->
 
 </div> <!-- 피드와 사이드바 묶어준 후 중앙정렬 -->
 
