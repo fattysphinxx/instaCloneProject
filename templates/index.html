@@ -144,7 +144,6 @@
         -webkit-text-size-adjust: 100%;
         --desktop-nav-height: 60px;
         --in-feed-story-item-padding: 14px;
-        color: rgba(var(--i1d, 38, 38, 38), 1);
         font: inherit;
         vertical-align: baseline;
         -webkit-box-align: stretch;
@@ -178,7 +177,6 @@
     .main_feed {
         width: 614px;
         height: 100%;
-        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         display: block;
         margin-bottom: 25px;
@@ -356,7 +354,9 @@
 
     .feed_box {
         width: 614px;
-        height: 956px;
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 23px;
     }
 
     .feed_name {
@@ -578,6 +578,9 @@
         color: #006fff;
         font-size: 14px;
     }
+
+    /* 사이드바 끝 */
+
     </style>
 
 </head>
@@ -650,7 +653,7 @@
                 <div class="feed_name_area1">
                     <div class="profile_box">
                         <img class="profile_img"
-                             src="/cha_img.jpeg">
+                             src={{url_for('static', filename='img/feed/cha_img.jpeg' )}}>
                     </div>
                     <div class="feed_name_txt"><b>fattysphinxx</b></div>
                 </div>
@@ -683,16 +686,16 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/one.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src={{url_for('static', filename="img/feed/one.jpeg" )}}
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="/two.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src={{url_for('static', filename="img/feed/two.jpeg" )}}
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="/three.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src={{url_for('static', filename="img/feed/three.jpeg" )}}
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -762,7 +765,7 @@
                 <div class="feed_name_area1">
                     <div class="profile_box">
                         <img class="profile_img"
-                             src="/cha_img.jpeg">
+                             src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlCBvm%2FbtrA328Rivy%2F6tFOADNq5OGruGpijgd8N0%2Fimg.jpg"/>
                     </div>
                     <div class="feed_name_txt"><b>babobabo_bo</b></div>
                 </div>
@@ -795,16 +798,16 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/one.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcq21G4%2FbtrA3tr5F28%2F1iI7J2q5J9LKgqYAqW234k%2Fimg.jpg"
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="/two.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc8ZSgL%2FbtrA3r16Foz%2Fz2bepY7QCkivYkqCnxjltk%2Fimg.jpg"
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="/three.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbqEz5l%2FbtrA34lhVKr%2FlJ5VFbNoyGakmJ1s2IEdCk%2Fimg.jpg"
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
@@ -834,18 +837,20 @@
             </div>
             <div class="feed_paragraghs">
                 <div class="feed_paragraghs_items">
-                    <div class="feed_paragraghs_p"><b>babobabo_bo</b> enfp와 infp 사이의 어딘가.</div>
+                    <div class="feed_paragraghs_p"><b>babobabo_bo</b>
+                        나 자신을 찾는 과정에서 몇 사람은 잃게 될 것이다.
+                    </div>
                     <div class="feed_paragraghs_see_all">댓글 6개 모두 보기</div>
                     <div class="feed_paragraghs_comment">
                         <div class="feed_paragraghs_comment_1">
-                            <div class="feed_paragraghs_comment_comment"><b>babobabo_bo</b>
-                                <p class="p_inline">전형적인 e 라구염</p></div>
+                            <div class="feed_paragraghs_comment_comment"><b>kid_do</b>
+                                <p class="p_inline">관계는 복잡하고 어렵슴다..</p></div>
                             <div class="feed_paragraghs_comment_heart"><i
                                     class="icon_middle fa-solid fa-heart fa-sm"></i></div>
                         </div>
                         <div class="feed_paragraghs_comment_1">
                             <div class="feed_paragraghs_comment_comment"><b>babobabo_bo</b>
-                                <p class="p_inline">전형적인 e 라니까여</p></div>
+                                <p class="p_inline">어렵슴다 맞아요ㅎ_ㅎ</p></div>
                             <div class="feed_paragraghs_comment_heart"><i
                                     class="icon_middle fa-solid fa-heart fa-sm"></i></div>
                         </div>
@@ -874,9 +879,9 @@
                 <div class="feed_name_area1">
                     <div class="profile_box">
                         <img class="profile_img"
-                             src="/cha_img.jpeg">
+                             src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FB6IOW%2FbtrA33fCdFK%2FFVS3ooak6NX601wnStCMk0%2Fimg.jpg"/>
                     </div>
-                    <div class="feed_name_txt"><b>soriya</b></div>
+                    <div class="feed_name_txt"><b>Kim_Dal_Lae</b></div>
                 </div>
                 <div class="feed_name_area2">
                     <div class="button_modal">
@@ -907,16 +912,16 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/one.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbUx3pI%2FbtrA3s00RkO%2FXFnzR8YQvYonMnoVFVECr1%2Fimg.jpg"
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="/two.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbDJnnD%2FbtrA3smqPfK%2FDlVlUKXnR848NZpTokUFX0%2Fimg.jpg"
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="/three.jpeg"
-                                 class="d-block w-100" alt="...">
+                            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrGQTG%2FbtrAWA7vxSz%2FxI684clfar2eZ5F2K76sK0%2Fimg.jpg"
+                                 class="feed_img d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"
@@ -946,18 +951,18 @@
             </div>
             <div class="feed_paragraghs">
                 <div class="feed_paragraghs_items">
-                    <div class="feed_paragraghs_p"><b>soriya</b> enfp와 infp 사이의 어딘가.</div>
+                    <div class="feed_paragraghs_p"><b>Kim_Dal_Lae</b> 다 내가 먹은 거다옹</div>
                     <div class="feed_paragraghs_see_all">댓글 13개 모두 보기</div>
                     <div class="feed_paragraghs_comment">
                         <div class="feed_paragraghs_comment_1">
-                            <div class="feed_paragraghs_comment_comment"><b>soriya</b>
-                                <p class="p_inline">전형적인 e 라구염</p></div>
+                            <div class="feed_paragraghs_comment_comment"><b>Kim_Dal_Lae</b>
+                                <p class="p_inline">먹고 싶냐옹</p></div>
                             <div class="feed_paragraghs_comment_heart"><i
                                     class="icon_middle fa-solid fa-heart fa-sm"></i></div>
                         </div>
                         <div class="feed_paragraghs_comment_1">
-                            <div class="feed_paragraghs_comment_comment"><b>soriya</b>
-                                <p class="p_inline">전형적인 e 라니까여</p></div>
+                            <div class="feed_paragraghs_comment_comment"><b>Kim_Dal_Lae</b>
+                                <p class="p_inline">다 내 꺼다옹 ^_^</p></div>
                             <div class="feed_paragraghs_comment_heart"><i
                                     class="icon_middle fa-solid fa-heart fa-sm"></i></div>
                         </div>
@@ -987,7 +992,7 @@
     <div class="main_side_bar">
         <div class="main_side_bar_account">
             <div class="main_side_bar_account_img">
-                <img class="side_bar_img_size" src="/cha_img.jpeg"/>
+                <img class="side_bar_img_size" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FMllzP%2FbtrAVshziSn%2FLDveXB75amcKod0h1S7Q11%2Fimg.jpg"/>
             </div>
             <div class="main_side_bar_account_name">
                 <div class="side_bar_account"><b>fattysphinxx</b></div>
@@ -1004,7 +1009,7 @@
                 <div class="side_bar_suggest_list">
                     <div class="side_bar_suggest_list_sep">
                         <div class="side_bar_suggest_img">
-                            <img class="side_bar_sug_img_size" src="/side_bar.jpeg"/>
+                            <img class="side_bar_sug_img_size" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbhIl3W%2FbtrA0XGMJPO%2F9I5bP8sHBEic9gNDK6mEb1%2Fimg.webp"/>
                         </div>
                         <div class="side_bar_list_accounts">
                             <div class="side_bar_list_account">
@@ -1023,7 +1028,7 @@
                     <div class="side_bar_suggest_list_se">
                         <div class="side_bar_suggest_list_sep">
                             <div class="side_bar_suggest_img">
-                                <img class="side_bar_sug_img_size" src="/side_bar4.jpeg"/>
+                                <img class="side_bar_sug_img_size" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd8nSgN%2FbtrAYt0iXBr%2FZho1yiQHDSOZU0MDmdiopK%2Fimg.webp"/>
                             </div>
                             <div class="side_bar_list_accounts">
                                 <div class="side_bar_list_account">
@@ -1043,7 +1048,7 @@
                     <div class="side_bar_suggest_list_se">
                         <div class="side_bar_suggest_list_sep">
                             <div class="side_bar_suggest_img">
-                                <img class="side_bar_sug_img_size" src="/side_bar1.jpeg"/>
+                                <img class="side_bar_sug_img_size" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbJiiZ1%2FbtrAUkbKPW1%2F46tz6rqF0oPovu3BAXiktk%2Fimg.webp"/>
                             </div>
                             <div class="side_bar_list_accounts">
                                 <div class="side_bar_list_account">
@@ -1063,7 +1068,7 @@
                     <div class="side_bar_suggest_list_se">
                         <div class="side_bar_suggest_list_sep">
                             <div class="side_bar_suggest_img">
-                                <img class="side_bar_sug_img_size" src="/side_bar2.jpeg"/>
+                                <img class="side_bar_sug_img_size" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbyJx8t%2FbtrA33fAOI7%2FMc2bRsQDj1iTt8GZhaPB0k%2Fimg.webp"/>
                             </div>
                             <div class="side_bar_list_accounts">
                                 <div class="side_bar_list_account">
@@ -1083,7 +1088,7 @@
                     <div class="side_bar_suggest_list_se">
                         <div class="side_bar_suggest_list_sep">
                             <div class="side_bar_suggest_img">
-                                <img class="side_bar_sug_img_size" src="/side_bar3.jpeg"/>
+                                <img class="side_bar_sug_img_size" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc0Sc97%2FbtrA3icQ07i%2FqomF587QDXQPvADqkS5gIK%2Fimg.jpg"/>
                             </div>
                             <div class="side_bar_list_accounts">
                                 <div class="side_bar_list_account">
